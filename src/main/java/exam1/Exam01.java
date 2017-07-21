@@ -13,7 +13,6 @@ public class Exam01 {
 
     }
 
-
     public void playerAWin() {
         scorePlayer1 += 15;
     }
@@ -25,6 +24,8 @@ public class Exam01 {
 
         if(scorePlayer1 == 15)
             return "Fifteen-Love";
+        if(scorePlayer1 == 30)
+            return "Thirty-Love";
         return "Love-All";
     }
 
