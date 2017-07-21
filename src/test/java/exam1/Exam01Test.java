@@ -359,4 +359,80 @@ public class Exam01Test {
         assertEquals("Win for Player B", actualResult);
     }
 
+    @Test
+    public void player_B_is_winner_with_20_20_should_Win_for_Player_B() {
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+
+        String actualResult = exam01.getScore();
+        assertEquals("Deuce", actualResult);
+    }
+
+    @Test
+    public void player_B_score_is_over() {
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerBWin();
+        exam01.playerBWin();
+        exam01.playerBWin();
+        exam01.playerBWin();
+        exam01.playerAWin();
+
+        String actualResult = exam01.getScore();
+        assertEquals("Win for Player B", actualResult);
+    }
+
+    @Test
+    public void player_A_score_is_over() {
+        exam01.playerAWin();
+        exam01.playerAWin();
+        exam01.playerAWin();
+        exam01.playerAWin();
+        exam01.playerBWin();
+        exam01.playerBWin();
+        exam01.playerBWin();
+        exam01.playerBWin();
+
+        String actualResult = exam01.getScore();
+        assertEquals("Win for Player A", actualResult);
+    }
+
 }

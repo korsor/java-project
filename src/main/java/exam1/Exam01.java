@@ -13,87 +13,91 @@ public class Exam01 {
     }
 
     public void playerAWin() {
-        if(scorePlayer1 <=15)
-            scorePlayer1 += 15;
-        else if(scorePlayer1 == 40 && scorePlayer2 == 40 || scorePlayer1 == 45)
-            scorePlayer1 += 5;
-        else if(scorePlayer2==45){
-            scorePlayer1 = 40;
-            scorePlayer2 = 40;
+        if (!(scorePlayer1 >= 50 || scorePlayer2 >= 50)) {
+            if (scorePlayer1 <= 15)
+                scorePlayer1 += 15;
+            else if (scorePlayer1 == 40 && scorePlayer2 == 40 || scorePlayer1 == 45)
+                scorePlayer1 += 5;
+            else if (scorePlayer2 == 45) {
+                scorePlayer1 = 40;
+                scorePlayer2 = 40;
+            } else scorePlayer1 += 10;
+            if (scorePlayer1 >= 50)
+                this.getScore();
         }
-        else scorePlayer1+=10;
     }
 
     public void playerBWin() {
-        if(scorePlayer2 <=15)
-            scorePlayer2 += 15;
-        else if(scorePlayer1 == 40 && scorePlayer2 == 40 || scorePlayer2 == 45)
-            scorePlayer2 += 5;
-        else if(scorePlayer1==45){
-            scorePlayer1 = 40;
-            scorePlayer2 = 40;
+        if (!(scorePlayer1 >= 50 || scorePlayer2 >= 50)) {
+            if (scorePlayer2 <= 15)
+                scorePlayer2 += 15;
+            else if (scorePlayer1 == 40 && scorePlayer2 == 40 || scorePlayer2 == 45)
+                scorePlayer2 += 5;
+            else if (scorePlayer1 == 45) {
+                scorePlayer1 = 40;
+                scorePlayer2 = 40;
+            } else scorePlayer2 += 10;
         }
-        else scorePlayer2+=10;
     }
 
     public String getScore() {
-        if(scorePlayer1 == 0){
-            if(scorePlayer2==0)
+        if (scorePlayer1 == 0) {
+            if (scorePlayer2 == 0)
                 return "Love-All";
-            if(scorePlayer2 == 15)
+            if (scorePlayer2 == 15)
                 return "Love-Fifteen";
-            if(scorePlayer2 == 30)
+            if (scorePlayer2 == 30)
                 return "Love-Thirty";
-            if(scorePlayer2 == 40)
+            if (scorePlayer2 == 40)
                 return "Love-Forty";
-            if(scorePlayer2 == 50)
+            if (scorePlayer2 == 50)
                 return "Win for Player B";
         }
 
-        if(scorePlayer1 == 15) {
-            if(scorePlayer2==0)
+        if (scorePlayer1 == 15) {
+            if (scorePlayer2 == 0)
                 return "Fifteen-Love";
-            if(scorePlayer2 == 15)
+            if (scorePlayer2 == 15)
                 return "Fifteen-All";
-            if(scorePlayer2 == 30)
+            if (scorePlayer2 == 30)
                 return "Fifteen-Thirty";
-            if(scorePlayer2 == 40)
+            if (scorePlayer2 == 40)
                 return "Fifteen-Forty";
-            if(scorePlayer2 == 50)
+            if (scorePlayer2 == 50)
                 return "Win for Player B";
             return "Fifteen-Love";
         }
-        if(scorePlayer1 == 30) {
-            if(scorePlayer2==0)
+        if (scorePlayer1 == 30) {
+            if (scorePlayer2 == 0)
                 return "Thirty-Love";
-            if(scorePlayer2==15)
+            if (scorePlayer2 == 15)
                 return "Thirty-Fifteen";
-            if(scorePlayer2 == 30)
+            if (scorePlayer2 == 30)
                 return "Thirty-All";
-            if(scorePlayer2 == 40)
+            if (scorePlayer2 == 40)
                 return "Thirty-Forty";
-            if(scorePlayer2 == 50)
+            if (scorePlayer2 == 50)
                 return "Win for Player B";
         }
 
-        if(scorePlayer1 == 40) {
-            if(scorePlayer2 == 0)
+        if (scorePlayer1 == 40) {
+            if (scorePlayer2 == 0)
                 return "Forty-Love";
-            if(scorePlayer2==15)
+            if (scorePlayer2 == 15)
                 return "Forty-Fifteen";
-            if(scorePlayer2 == 30)
+            if (scorePlayer2 == 30)
                 return "Forty-Thirty";
-            if(scorePlayer2 == 40)
+            if (scorePlayer2 == 40)
                 return "Deuce";
         }
 
-        if(scorePlayer1 == 45)
+        if (scorePlayer1 == 45)
             return "Advantage Player A";
-        if(scorePlayer2 == 45)
+        if (scorePlayer2 == 45)
             return "Advantage Player B";
-        if(scorePlayer1 == 50)
+        if (scorePlayer1 == 50)
             return "Win for Player A";
-        if(scorePlayer2 == 50)
+        if (scorePlayer2 == 50)
             return "Win for Player B";
 
         return "";
