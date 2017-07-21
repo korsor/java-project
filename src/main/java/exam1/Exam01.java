@@ -22,8 +22,6 @@ public class Exam01 {
                 scorePlayer1 = 40;
                 scorePlayer2 = 40;
             } else scorePlayer1 += 10;
-            if (scorePlayer1 >= 50)
-                this.getScore();
         }
     }
 
