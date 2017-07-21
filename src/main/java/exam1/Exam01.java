@@ -31,6 +31,8 @@ public class Exam01 {
                 return "Love-Fifteen";
             if(scorePlayer2 == 30)
                 return "Love-Thirty";
+            if(scorePlayer2 == 40)
+                return "Love-Forty";
         }
 
         if(scorePlayer1 == 15)
