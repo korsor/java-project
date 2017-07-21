@@ -30,6 +30,8 @@ public class Exam01 {
             return "Thirty-Love";
         if(scorePlayer1 == 40)
             return "Forty-Love";
+        if(scorePlayer1 == 50)
+            return "Win for Player A";
         return "Love-All";
     }
 
