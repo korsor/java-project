@@ -20,9 +20,16 @@ public class Exam01 {
     }
 
     public void playerBWin() {
+        if(scorePlayer2 <=15)
+            scorePlayer2 += 15;
+        else scorePlayer2+=10;
     }
 
     public String getScore() {
+        if(scorePlayer1 == 0){
+            if(scorePlayer2 == 15)
+                return "Love-Fifteen";
+        }
 
         if(scorePlayer1 == 15)
             return "Fifteen-Love";
@@ -32,6 +39,7 @@ public class Exam01 {
             return "Forty-Love";
         if(scorePlayer1 == 50)
             return "Win for Player A";
+
         return "Love-All";
     }
 
