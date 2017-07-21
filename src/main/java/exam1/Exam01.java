@@ -56,6 +56,8 @@ public class Exam01 {
         if(scorePlayer1 == 30) {
             if(scorePlayer2==0)
                 return "Thirty-Love";
+            if(scorePlayer2==0)
+                return "Thirty-Fifteen";
             if(scorePlayer2 == 30)
                 return "Thirty-All";
         }
