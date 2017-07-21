@@ -37,8 +37,11 @@ public class Exam01 {
                 return "Win for Player B";
         }
 
-        if(scorePlayer1 == 15)
+        if(scorePlayer1 == 15) {
+            if(scorePlayer2 == 15)
+                return "Fifteen-All";
             return "Fifteen-Love";
+        }
         if(scorePlayer1 == 30)
             return "Thirty-Love";
         if(scorePlayer1 == 40)
