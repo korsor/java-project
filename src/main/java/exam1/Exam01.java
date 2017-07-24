@@ -1,104 +1,64 @@
 package exam1;
 
 public class Exam01 {
-    String player1 = "";
-    String player2 = "";
-    int scorePlayer1 = 0;
-    int scorePlayer2 = 0;
+    private String player1;
+    private String player2;
+    private int scorePlayer1 = 0;
+    private int scorePlayer2 = 0;
 
     public Exam01(String firstPerson, String secondPerson) {
         this.player1 = firstPerson;
         this.player2 = secondPerson;
-
     }
 
     public void playerAWin() {
-        if (!(scorePlayer1 >= 50 || scorePlayer2 >= 50)) {
-            if (scorePlayer1 <= 15)
-                scorePlayer1 += 15;
-            else if (scorePlayer1 == 40 && scorePlayer2 == 40 || scorePlayer1 == 45)
-                scorePlayer1 += 5;
-            else if (scorePlayer2 == 45) {
-                scorePlayer1 = 40;
-                scorePlayer2 = 40;
-            } else scorePlayer1 += 10;
+        if (!(scorePlayer1 >= 5 || scorePlayer2 >= 5)) {
+            if (scorePlayer1 == 4 && scorePlayer2 == 4) {
+                scorePlayer1 = 4;
+                scorePlayer2 = 3;
+            } else if (scorePlayer1 == 3 && scorePlayer1 > scorePlayer2)
+                scorePlayer1 += 2;
+            else scorePlayer1++;
         }
     }
 
     public void playerBWin() {
-        if (!(scorePlayer1 >= 50 || scorePlayer2 >= 50)) {
-            if (scorePlayer2 <= 15)
-                scorePlayer2 += 15;
-            else if (scorePlayer1 == 40 && scorePlayer2 == 40 || scorePlayer2 == 45)
-                scorePlayer2 += 5;
-            else if (scorePlayer1 == 45) {
-                scorePlayer1 = 40;
-                scorePlayer2 = 40;
-            } else scorePlayer2 += 10;
+        if (!(scorePlayer1 >= 5 || scorePlayer2 >= 5)) {
+            if (scorePlayer1 == 4 && scorePlayer2 == 4) {
+                scorePlayer1 = 3;
+                scorePlayer2 = 4;
+            } else if (scorePlayer2 == 3 && scorePlayer2 > scorePlayer1)
+                scorePlayer2 += 2;
+            else scorePlayer2++;
         }
     }
 
     public String getScore() {
-        if (scorePlayer1 == 0) {
-            if (scorePlayer2 == 0)
-                return "Love-All";
-            if (scorePlayer2 == 15)
-                return "Love-Fifteen";
-            if (scorePlayer2 == 30)
-                return "Love-Thirty";
-            if (scorePlayer2 == 40)
-                return "Love-Forty";
-            if (scorePlayer2 == 50)
-                return "Win for Player B";
-        }
-
-        if (scorePlayer1 == 15) {
-            if (scorePlayer2 == 0)
-                return "Fifteen-Love";
-            if (scorePlayer2 == 15)
-                return "Fifteen-All";
-            if (scorePlayer2 == 30)
-                return "Fifteen-Thirty";
-            if (scorePlayer2 == 40)
-                return "Fifteen-Forty";
-            if (scorePlayer2 == 50)
-                return "Win for Player B";
-            return "Fifteen-Love";
-        }
-        if (scorePlayer1 == 30) {
-            if (scorePlayer2 == 0)
-                return "Thirty-Love";
-            if (scorePlayer2 == 15)
-                return "Thirty-Fifteen";
-            if (scorePlayer2 == 30)
-                return "Thirty-All";
-            if (scorePlayer2 == 40)
-                return "Thirty-Forty";
-            if (scorePlayer2 == 50)
-                return "Win for Player B";
-        }
-
-        if (scorePlayer1 == 40) {
-            if (scorePlayer2 == 0)
-                return "Forty-Love";
-            if (scorePlayer2 == 15)
-                return "Forty-Fifteen";
-            if (scorePlayer2 == 30)
-                return "Forty-Thirty";
-            if (scorePlayer2 == 40)
+        if (scorePlayer1 == scorePlayer2) {
+            if (scorePlayer1 == 3 || scorePlayer1 == 4)
                 return "Deuce";
+            return convertScoreToString(scorePlayer1) + "-All";
         }
-
-        if (scorePlayer1 == 45)
-            return "Advantage Player A";
-        if (scorePlayer2 == 45)
-            return "Advantage Player B";
-        if (scorePlayer1 == 50)
-            return "Win for Player A";
-        if (scorePlayer2 == 50)
-            return "Win for Player B";
-
-        return "";
+        if (scorePlayer1 == 4)
+            return "Advantage " + player1;
+        if (scorePlayer2 == 4)
+            return "Advantage " + player2;
+        if (scorePlayer1 == 5)
+            return "Win for " + player1;
+        if (scorePlayer2 == 5)
+            return "Win for " + player2;
+        return convertScoreToString(scorePlayer1) + "-" + convertScoreToString(scorePlayer2);
     }
 
+    private String convertScoreToString(int score) {
+        if (score == 0)
+            return "Love";
+        if (score == 1)
+            return "Fifteen";
+        if (score == 2)
+            return "Thirty";
+        if (score == 3)
+            return "Forty";
+        return "";
+    }
 }
