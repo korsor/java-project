@@ -12,46 +12,54 @@ public class Exam01 {
     }
 
     public void playerAWin() {
-        if (!(scorePlayer1 >= 5 || scorePlayer2 >= 5)) {
-            if (scorePlayer1 == 4 && scorePlayer2 == 4) {
-                scorePlayer1 = 4;
-                scorePlayer2 = 3;
-            } else if (scorePlayer1 == 3 && scorePlayer1 > scorePlayer2)
-                scorePlayer1 += 2;
-            else scorePlayer1++;
-        }
+        if(!(isWinner()))
+            scorePlayer1++;
     }
 
     public void playerBWin() {
-        if (!(scorePlayer1 >= 5 || scorePlayer2 >= 5)) {
-            if (scorePlayer1 == 4 && scorePlayer2 == 4) {
-                scorePlayer1 = 3;
-                scorePlayer2 = 4;
-            } else if (scorePlayer2 == 3 && scorePlayer2 > scorePlayer1)
-                scorePlayer2 += 2;
-            else scorePlayer2++;
-        }
+        if(!(isWinner()))
+            scorePlayer2++;
     }
 
     public String getScore() {
-        if (scorePlayer1 == scorePlayer2) {
-            if (scorePlayer1 == 3 || scorePlayer1 == 4)
-                return "Deuce";
+        if (isWinner())
+            return "Win for " + ((scorePlayer1 > scorePlayer2) ? player1 : player2);
+        else if (isAdvantage())
+            return "Advantage " + ((scorePlayer1 > scorePlayer2) ? player1 : player2);
+        else if (isDeuce())
+            return "Deuce";
+        else if (isAll())
             return convertScoreToString(scorePlayer1) + "-All";
-        }
-        if (scorePlayer1 == 4)
-            return "Advantage " + player1;
-        if (scorePlayer2 == 4)
-            return "Advantage " + player2;
-        if (scorePlayer1 == 5)
-            return "Win for " + player1;
-        if (scorePlayer2 == 5)
-            return "Win for " + player2;
-        return convertScoreToString(scorePlayer1) + "-" + convertScoreToString(scorePlayer2);
+        else
+            return convertScoreToString(scorePlayer1) + "-" + convertScoreToString(scorePlayer2);
     }
 
     private String convertScoreToString(int score) {
         String[] ScoreToString = {"Love", "Fifteen", "Thirty", "Forty"};
         return ScoreToString[score];
+    }
+
+    private boolean isWinner() {
+        if ((scorePlayer1 >= 4 || scorePlayer2 >= 4) && Math.abs(scorePlayer1 - scorePlayer2) >= 2)
+            return true;
+        return false;
+    }
+
+    private boolean isAdvantage() {
+        if ((scorePlayer1 >= 4 || scorePlayer2 >= 4) && Math.abs(scorePlayer1 - scorePlayer2) == 1)
+            return true;
+        return false;
+    }
+
+    private boolean isDeuce() {
+        if ((scorePlayer1 >= 3 || scorePlayer2 >= 3) && scorePlayer1 == scorePlayer2)
+            return true;
+        return false;
+    }
+
+    private boolean isAll() {
+        if (!(scorePlayer1 >= 3 || scorePlayer2 >= 3) && scorePlayer1 == scorePlayer2)
+            return true;
+        return false;
     }
 }
