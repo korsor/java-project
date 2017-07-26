@@ -51,14 +51,7 @@ public class Exam01 {
     }
 
     private String convertScoreToString(int score) {
-        if (score == 0)
-            return "Love";
-        if (score == 1)
-            return "Fifteen";
-        if (score == 2)
-            return "Thirty";
-        if (score == 3)
-            return "Forty";
-        return "";
+        String[] ScoreToString = {"Love", "Fifteen", "Thirty", "Forty"};
+        return ScoreToString[score];
     }
 }
